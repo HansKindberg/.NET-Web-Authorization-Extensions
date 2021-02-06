@@ -1,0 +1,70 @@
+﻿@model AccountViewModel
+<div class="card">
+	<div class="card-header">
+		<h1 class="h4 m-0 p-0">
+			<svg class="size-1-point-4-rem m-0 p-0" role="presentation">
+				<use xlink:href="/Style/Icons/sprite.svg#person" />
+			</svg>
+			Your identity
+		</h1>
+	</div>
+	<div class="card-body">
+		<p>User-name: <strong>@Model.UserName</strong></p>
+		<h2 class="h6">Claims</h2>
+		<ul class="list-group">
+			@foreach(var claim in Model.Claims.OrderBy(item => item.Type))
+			{
+				<li class="list-group-item">
+					<h3 class="h6">@claim.Type</h3>
+					<ul class="list-unstyled">
+						<li>
+							<small>Value: <strong>@claim.Value</strong></small>
+						</li>
+						<li>
+							<small>Issuer: <strong>@claim.Issuer</strong></small>
+						</li>
+						<li>
+							<small>Original issuer: <strong>@claim.OriginalIssuer</strong></small>
+						</li>
+					</ul>
+				</li>
+			}
+		</ul>
+		@if(Model.AuthenticationProperties.Any())
+		{
+			<h2 class="h6 mt-3">Authentication-properties</h2>
+			<ul class="list-group">
+				@foreach(var (key, value) in Model.AuthenticationProperties)
+				{
+					<li class="list-group-item">
+						<small>@key: <strong>@value</strong></small>
+					</li>
+				}
+			</ul>
+		}
+		@if(Model.Permissions.Any())
+		{
+			<h2 class="h6 mt-3">Permissions</h2>
+			<ul class="list-group">
+				@foreach(var permission in Model.Permissions)
+				{
+					<li class="list-group-item">
+						<small>@permission</small>
+					</li>
+				}
+			</ul>
+		}
+		@if(Model.Roles.Any())
+		{
+			<h2 class="h6 mt-3">Roles</h2>
+			<ul class="list-group">
+				@foreach(var role in Model.Roles)
+				{
+					<li class="list-group-item">
+						<small>@role</small>
+					</li>
+				}
+			</ul>
+		}
+	</div>
+</div>

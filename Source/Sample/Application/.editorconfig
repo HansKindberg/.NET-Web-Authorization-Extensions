@@ -1,0 +1,19 @@
+[*.cs]
+# Suppress
+dotnet_diagnostic.CA1056.severity = none
+dotnet_diagnostic.CA1303.severity = none
+dotnet_diagnostic.CA2007.severity = none
+dotnet_diagnostic.IDE0078.severity = none
+
+[/Controllers/*.cs]
+dotnet_diagnostic.CA1054.severity = none
+dotnet_diagnostic.CA1055.severity = none
+
+[/Models/Views/Error/*.cs]
+dotnet_diagnostic.CA1716.severity = none
+
+[/Models/Views/Shared/*.cs]
+dotnet_diagnostic.CA1716.severity = none
+
+[/Models/Views/Shared/**/*.cs]
+dotnet_diagnostic.CA1716.severity = none

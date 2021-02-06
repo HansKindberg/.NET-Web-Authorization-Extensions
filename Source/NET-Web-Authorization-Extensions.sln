@@ -1,0 +1,93 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29609.76
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Global", ".Global", "{09FC18CE-DA42-4009-91B1-B541A826FDBE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{27BA5CA3-5238-4089-BE59-A2ADB85D0EDC}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		Directory.Build.targets = Directory.Build.targets
+		Directory.Version.props = Directory.Version.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{12A3DF20-C7B6-40E7-BC8C-C78BB51F96F2}"
+	ProjectSection(SolutionItems) = preProject
+		..\ReadMe.md = ..\ReadMe.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Settings", "Settings", "{2F45BC7D-4D4D-4C88-9AD8-AF19C3CEE655}"
+	ProjectSection(SolutionItems) = preProject
+		..\.editorconfig = ..\.editorconfig
+		..\.gitignore = ..\.gitignore
+		..\License = ..\License
+		..\NuGet.config = ..\NuGet.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Signing", "Signing", "{D1C1A635-25BF-4201-A6AB-3B6B9A446842}"
+	ProjectSection(SolutionItems) = preProject
+		.Global\Signing\ReadMe.md = .Global\Signing\ReadMe.md
+		.Global\Signing\StrongName.Development.snk = .Global\Signing\StrongName.Development.snk
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{EA55525C-51E5-4F6E-8691-0BF360AED6CD}"
+	ProjectSection(SolutionItems) = preProject
+		Sample\Directory.Build.props = Sample\Directory.Build.props
+		Sample\Directory.Build.targets = Sample\Directory.Build.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{86A226E7-87DA-40A3-8F54-DA52DAD95248}"
+	ProjectSection(SolutionItems) = preProject
+		Tests\.editorconfig = Tests\.editorconfig
+		Tests\Directory.Build.props = Tests\Directory.Build.props
+		Tests\Directory.Build.targets = Tests\Directory.Build.targets
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Sample\Application\Application.csproj", "{133DCA5C-4488-44C3-B63B-D7DF64543360}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project", "Project\Project.csproj", "{94576CC2-8F9D-4B3C-9FDB-AD00D2F465DB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Integration-tests", "Tests\Integration-tests\Integration-tests.csproj", "{CFD638BA-A030-4720-A1C7-A07B54EBF6EC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unit-tests", "Tests\Unit-tests\Unit-tests.csproj", "{24578C7C-D213-4C9D-A67C-375A7D5BB7C0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{133DCA5C-4488-44C3-B63B-D7DF64543360}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{133DCA5C-4488-44C3-B63B-D7DF64543360}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{133DCA5C-4488-44C3-B63B-D7DF64543360}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{133DCA5C-4488-44C3-B63B-D7DF64543360}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94576CC2-8F9D-4B3C-9FDB-AD00D2F465DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94576CC2-8F9D-4B3C-9FDB-AD00D2F465DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94576CC2-8F9D-4B3C-9FDB-AD00D2F465DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94576CC2-8F9D-4B3C-9FDB-AD00D2F465DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFD638BA-A030-4720-A1C7-A07B54EBF6EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFD638BA-A030-4720-A1C7-A07B54EBF6EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFD638BA-A030-4720-A1C7-A07B54EBF6EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFD638BA-A030-4720-A1C7-A07B54EBF6EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24578C7C-D213-4C9D-A67C-375A7D5BB7C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24578C7C-D213-4C9D-A67C-375A7D5BB7C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24578C7C-D213-4C9D-A67C-375A7D5BB7C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24578C7C-D213-4C9D-A67C-375A7D5BB7C0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{27BA5CA3-5238-4089-BE59-A2ADB85D0EDC} = {09FC18CE-DA42-4009-91B1-B541A826FDBE}
+		{12A3DF20-C7B6-40E7-BC8C-C78BB51F96F2} = {09FC18CE-DA42-4009-91B1-B541A826FDBE}
+		{2F45BC7D-4D4D-4C88-9AD8-AF19C3CEE655} = {09FC18CE-DA42-4009-91B1-B541A826FDBE}
+		{D1C1A635-25BF-4201-A6AB-3B6B9A446842} = {09FC18CE-DA42-4009-91B1-B541A826FDBE}
+		{133DCA5C-4488-44C3-B63B-D7DF64543360} = {EA55525C-51E5-4F6E-8691-0BF360AED6CD}
+		{CFD638BA-A030-4720-A1C7-A07B54EBF6EC} = {86A226E7-87DA-40A3-8F54-DA52DAD95248}
+		{24578C7C-D213-4C9D-A67C-375A7D5BB7C0} = {86A226E7-87DA-40A3-8F54-DA52DAD95248}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5C040DE8-0848-429C-8027-B5613F8441FD}
+	EndGlobalSection
+EndGlobal

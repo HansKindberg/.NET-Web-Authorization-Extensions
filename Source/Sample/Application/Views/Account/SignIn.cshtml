@@ -1,0 +1,25 @@
+﻿@model SignInViewModel
+<div class="card">
+	<div class="card-header">
+		<h1 class="h4">Sign in</h1>
+	</div>
+	<div class="card-body">
+		<p>Select one of the following signin methods.</p>
+		<ul class="authentication-schemes list-group">
+			<li class="list-group-item">
+				<partial name="ValidationSummary" />
+				<partial model="@Model.Form" name="SignInForm" />
+			</li>
+			<li class="list-group-item">
+				<a asp-action="Windows" asp-controller="Authenticate" asp-route-returnUrl="@Model.Form.ReturnUrl" title="Sign in with Windows.">
+					<h2 class="h6">
+						<svg class="size-1-point-4-rem" role="presentation">
+							<use xlink:href="/Style/Icons/sprite.svg#windows" />
+						</svg>
+						<span class="font-weight-light">Sign in with</span> Windows
+					</h2>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>

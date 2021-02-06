@@ -1,0 +1,22 @@
+{
+	"Authorization": {
+		"Policy": {
+			"Permissions": [
+				{
+					"Name": "First-permission",
+					"Roles": [ "First-role" ]
+				},
+				{
+					"Name": "Second-permission",
+					"Roles": [ "Second-role" ]
+				}
+			],
+			"Roles": [
+				{
+					"Name": "First-role",
+					"Users": [ "1" ]
+				}
+			]
+		}
+	}
+}

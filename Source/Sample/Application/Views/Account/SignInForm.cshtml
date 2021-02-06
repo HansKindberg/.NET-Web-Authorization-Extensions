@@ -1,0 +1,13 @@
+﻿@model SignInForm
+<form asp-action="SignIn" asp-controller="Account">
+	<input asp-for="ReturnUrl" type="hidden" />
+	<div class="form-group">
+		<label asp-for="UserName"></label>
+		<input asp-for="UserName" autofocus="autofocus" class="form-control" />
+	</div>
+	<div class="text-right">
+		<button class="btn btn-primary" type="submit">Sign in</button>
+		<button class="btn btn-secondary" name="@nameof(Model.Cancel)" value="@true.ToString()">Cancel</button>
+	</div>
+	<small class="form-text text-muted">You can use any user-name you like. If you want to use specific permissions, use alice or bob.</small>
+</form>
