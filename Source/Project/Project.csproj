@@ -24,7 +24,7 @@
 		<PackageTags></PackageTags>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="IdentityModel" Version="5.0.1" />
+		<PackageReference Include="IdentityModel" Version="5.1.0" />
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
 		<PackageReference Include="RegionOrebroLan.Logging" Version="0.0.2-alpha" />
 		<PackageReference Include="System.Security.Principal.Windows" Version="5.0.0" />
