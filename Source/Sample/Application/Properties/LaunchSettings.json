@@ -8,14 +8,7 @@
 		"windowsAuthentication": true
 	},
 	"profiles": {
-		"Docker": {
-			"commandName": "Docker",
-			"launchBrowser": true,
-			"launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
-			"publishAllPorts": true,
-			"useSSL": true
-		},
-		"IIS Express": {
+		"IIS Express Default (no ticket-store)": {
 			"commandName": "IISExpress",
 			"environmentVariables": {
 				"ASPNETCORE_ENVIRONMENT": "Development",
@@ -23,14 +16,55 @@
 			},
 			"launchBrowser": true
 		},
-		"Kestrel": {
-			"applicationUrl": "https://localhost:44356",
+		"IIS Express MemoryCache-TicketStore": {
+			"commandName": "IISExpress",
+			"environmentVariables": {
+				"ASPNETCORE_ENVIRONMENT": "MemoryCache-TicketStore",
+				"ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation"
+			},
+			"launchBrowser": true
+		},
+		"IIS Express Sqlite-DistributedCache-TicketStore": {
+			"commandName": "IISExpress",
+			"environmentVariables": {
+				"ASPNETCORE_ENVIRONMENT": "Sqlite-DistributedCache-TicketStore",
+				"ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation"
+			},
+			"launchBrowser": true
+		},
+		"Kestrel Default (no ticket-store)": {
+			"applicationUrl": "https://localhost:5001",
 			"commandName": "Project",
 			"environmentVariables": {
 				"ASPNETCORE_ENVIRONMENT": "Development",
 				"ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation"
 			},
 			"launchBrowser": true
+		},
+		"Kestrel MemoryCache-TicketStore": {
+			"applicationUrl": "https://localhost:5001",
+			"commandName": "Project",
+			"environmentVariables": {
+				"ASPNETCORE_ENVIRONMENT": "MemoryCache-TicketStore",
+				"ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation"
+			},
+			"launchBrowser": true
+		},
+		"Kestrel Sqlite-DistributedCache-TicketStore": {
+			"applicationUrl": "https://localhost:5001",
+			"commandName": "Project",
+			"environmentVariables": {
+				"ASPNETCORE_ENVIRONMENT": "Sqlite-DistributedCache-TicketStore",
+				"ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation"
+			},
+			"launchBrowser": true
+		},
+		"Docker": {
+			"commandName": "Docker",
+			"launchBrowser": true,
+			"launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+			"publishAllPorts": true,
+			"useSSL": true
 		}
 	}
 }

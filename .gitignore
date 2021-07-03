@@ -366,6 +366,10 @@ Source/.Global/Signing/*
 !Source/.Global/Signing/ReadMe.md
 !Source/.Global/Signing/StrongName.Development.snk
 
+Source/Sample/Application/Data/*
+!Source/Sample/Application/Data/ReadMe.md
+!Source/Sample/Application/Data/Key-Protection-Certificate.pfx
+
 Source/Sample/Application/Scripts/**/*.js.map
 Source/Sample/Application/Scripts/**/*.js
 Source/Sample/Application/Style/**/*.css
