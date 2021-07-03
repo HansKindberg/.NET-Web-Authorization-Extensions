@@ -124,7 +124,7 @@
 
 	function createRollupInputOptions(minify) {
 		const plugins = [
-			rollupNodeResolver(),
+			rollupNodeResolver.nodeResolve(),
 			rollupCommonJs(),
 			rollupTypescript()
 		];
