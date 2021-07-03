@@ -14,6 +14,13 @@ namespace HansKindberg.Web.Authorization
 	[CLSCompliant(false)]
 	public class ExtendedAuthorizationMiddleware
 	{
+		#region Fields
+
+		private static readonly string _permissionsIdentityAuthenticationType = $"{typeof(ExtendedAuthorizationMiddleware).FullName}:Permissions";
+		private static readonly string _rolesIdentityAuthenticationType = $"{typeof(ExtendedAuthorizationMiddleware).FullName}:Roles";
+
+		#endregion
+
 		#region Constructors
 
 		public ExtendedAuthorizationMiddleware(IAuthorizationResolver authorizationResolver, ILoggerFactory loggerFactory, RequestDelegate next, IOptionsMonitor<ExtendedAuthorizationOptions> optionsMonitor)
@@ -35,6 +42,8 @@ namespace HansKindberg.Web.Authorization
 		protected internal virtual RequestDelegate Next { get; }
 
 		protected internal virtual IOptionsMonitor<ExtendedAuthorizationOptions> OptionsMonitor { get; }
+		protected internal virtual string PermissionsIdentityAuthenticationType => _permissionsIdentityAuthenticationType;
+		protected internal virtual string RolesIdentityAuthenticationType => _rolesIdentityAuthenticationType;
 
 		#endregion
 
@@ -53,20 +62,45 @@ namespace HansKindberg.Web.Authorization
 			{
 				if(context.User.Identity != null && context.User.Identity.IsAuthenticated)
 				{
-					var nameClaimType = context.User.Identities.FirstOrDefault()?.NameClaimType ?? options.NameClaimType;
-					var roleClaimType = context.User.Identities.FirstOrDefault()?.RoleClaimType ?? options.RoleClaimType;
+					const string alreadyAddedLogFormat = "{0} already added. Probably because an ITicketStore, using memory-cache, is configured for the cookie-authentication.";
+					var containsPermissions = context.User.Identities.Any(item => string.Equals(item.AuthenticationType, this.PermissionsIdentityAuthenticationType, StringComparison.OrdinalIgnoreCase));
+					var containsRoles = context.User.Identities.Any(item => string.Equals(item.AuthenticationType, this.RolesIdentityAuthenticationType, StringComparison.OrdinalIgnoreCase));
 
-					var policy = await this.AuthorizationResolver.GetPolicyAsync(context.User);
-					var permissionClaims = policy.Permissions.Select(permission => new Claim(options.PermissionClaimType, permission)).ToArray();
-					var roleClaims = policy.Roles.Select(role => new Claim(roleClaimType, role)).ToArray();
+					if(containsPermissions)
+						this.Logger.LogDebugIfEnabled(string.Format(null, alreadyAddedLogFormat, "Permissions"));
 
-					var identity = new ClaimsIdentity(this.GetType().Name, nameClaimType, roleClaimType);
-					identity.AddClaims(permissionClaims);
-					identity.AddClaims(roleClaims);
+					if(containsRoles)
+						this.Logger.LogDebugIfEnabled(string.Format(null, alreadyAddedLogFormat, "Roles"));
 
-					this.Logger.LogDebugIfEnabled($"Adding {permissionClaims.Length} permission-claims and {roleClaims.Length} role-claims to user {context.User.Identity.Name}.");
+					if(!containsPermissions || !containsRoles)
+					{
+						var nameClaimType = context.User.Identities.FirstOrDefault()?.NameClaimType ?? options.NameClaimType;
+						var roleClaimType = context.User.Identities.FirstOrDefault()?.RoleClaimType ?? options.RoleClaimType;
 
-					context.User.AddIdentity(identity);
+						var policy = await this.AuthorizationResolver.GetPolicyAsync(context.User);
+
+						if(!containsPermissions)
+						{
+							var permissionClaims = policy.Permissions.Select(permission => new Claim(options.PermissionClaimType, permission)).ToArray();
+
+							this.Logger.LogDebugIfEnabled($"Adding {permissionClaims.Length} permission-claims to user {context.User.Identity.Name}.");
+
+							var identity = new ClaimsIdentity(this.PermissionsIdentityAuthenticationType, nameClaimType, roleClaimType);
+							identity.AddClaims(permissionClaims);
+							context.User.AddIdentity(identity);
+						}
+
+						if(!containsRoles)
+						{
+							var roleClaims = policy.Roles.Select(role => new Claim(roleClaimType, role)).ToArray();
+
+							this.Logger.LogDebugIfEnabled($"Adding {roleClaims.Length} role-claims to user {context.User.Identity.Name}.");
+
+							var identity = new ClaimsIdentity(this.RolesIdentityAuthenticationType, nameClaimType, roleClaimType);
+							identity.AddClaims(roleClaims);
+							context.User.AddIdentity(identity);
+						}
+					}
 				}
 			}
 
