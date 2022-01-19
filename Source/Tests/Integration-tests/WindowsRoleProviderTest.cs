@@ -50,7 +50,7 @@ namespace IntegrationTests
 		{
 			userName ??= string.Empty;
 
-			return await Task.FromResult(!userName.Contains(@"\", StringComparison.OrdinalIgnoreCase) ? null : userName.Split('\\').First());
+			return await Task.FromResult(!userName.Contains('\\', StringComparison.OrdinalIgnoreCase) ? null : userName.Split('\\').First());
 		}
 
 		[TestMethod]
