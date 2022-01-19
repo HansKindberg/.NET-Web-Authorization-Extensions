@@ -83,6 +83,8 @@ dotnet_style_readonly_field = true:suggestion
 # Parameter preferences
 dotnet_code_quality_unused_parameters = all:suggestion
 
+#dotnet_code_quality.enable_platform_analyzer_on_pre_net5_target=true
+
 #### C# Coding Conventions ####
 
 # var preferences
