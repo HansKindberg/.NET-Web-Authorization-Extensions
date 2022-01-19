@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.InteropServices;
 using HansKindberg.Web.Authorization.Configuration;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Configuration;
@@ -59,7 +60,8 @@ namespace HansKindberg.Web.Authorization.DependencyInjection.Extensions
 				throw new ArgumentNullException(nameof(services));
 
 			services.AddSingleton<ConfigurationRoleProvider>();
-			services.AddSingleton<WindowsRoleProvider>();
+			if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+				services.AddSingleton<WindowsRoleProvider>();
 
 			return services;
 		}

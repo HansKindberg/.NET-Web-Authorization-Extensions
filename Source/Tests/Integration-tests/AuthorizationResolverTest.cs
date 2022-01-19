@@ -46,7 +46,7 @@ namespace IntegrationTests
 
 		protected internal virtual async Task<IPrincipal> CreatePrincipalAsync(string userIdentifier)
 		{
-			var claims = new[] {new Claim(ClaimTypes.NameIdentifier, userIdentifier)};
+			var claims = new[] { new Claim(ClaimTypes.NameIdentifier, userIdentifier) };
 
 			return await Task.FromResult(new ClaimsPrincipal(new ClaimsIdentity(claims, "Integration-test")));
 		}
@@ -144,10 +144,10 @@ namespace IntegrationTests
 			Assert.AreEqual(1, policy.Roles.Count());
 		}
 
-		[TestMethod]
-#if NET5_0
+#if NET5_0_OR_GREATER
 		[System.Runtime.Versioning.SupportedOSPlatform("windows")]
 #endif
+		[TestMethod]
 		public async Task GetPolicyAsync_WindowsPrincipal_Test()
 		{
 			var windowsIdentity = WindowsIdentity.GetCurrent();

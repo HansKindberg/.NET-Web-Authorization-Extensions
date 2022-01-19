@@ -6,13 +6,13 @@ using HansKindberg.Web.Authorization.Configuration;
 
 namespace IntegrationTests.Helpers.Security.Principal.Extensions
 {
-#if NET5_0
-	[System.Runtime.Versioning.SupportedOSPlatform("windows")]
-#endif
 	public static class IdentityReferenceCollectionExtension
 	{
 		#region Methods
 
+#if NET5_0_OR_GREATER
+		[System.Runtime.Versioning.SupportedOSPlatform("windows")]
+#endif
 		public static ISet<string> AsRoles(this IdentityReferenceCollection identityReferences, WindowsRolesOptions options = null)
 		{
 			if(identityReferences == null)

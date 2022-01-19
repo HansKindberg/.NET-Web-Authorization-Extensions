@@ -5,7 +5,7 @@ using HansKindberg.Web.Authorization.Configuration;
 
 namespace IntegrationTests.Helpers.Security.Principal.Extensions
 {
-#if NET5_0
+#if NET5_0_OR_GREATER
 	[System.Runtime.Versioning.SupportedOSPlatform("windows")]
 #endif
 	public static class WindowsIdentityExtension

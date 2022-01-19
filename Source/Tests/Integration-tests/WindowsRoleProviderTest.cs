@@ -16,10 +16,10 @@ using Moq;
 
 namespace IntegrationTests
 {
-	[TestClass]
-#if NET5_0
+#if NET5_0_OR_GREATER
 	[System.Runtime.Versioning.SupportedOSPlatform("windows")]
 #endif
+	[TestClass]
 	public class WindowsRoleProviderTest
 	{
 		#region Methods
