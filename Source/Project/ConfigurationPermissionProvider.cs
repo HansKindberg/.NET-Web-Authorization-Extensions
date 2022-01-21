@@ -34,9 +34,7 @@ namespace HansKindberg.Web.Authorization
 			if(claimsPrincipal == null)
 				throw new ArgumentNullException(nameof(claimsPrincipal));
 
-			// ReSharper disable ConvertToNullCoalescingCompoundAssignment
-			roles = roles ?? Enumerable.Empty<string>();
-			// ReSharper restore ConvertToNullCoalescingCompoundAssignment
+			roles ??= Enumerable.Empty<string>();
 
 			var permissions = new SortedSet<string>(StringComparer.OrdinalIgnoreCase);
 
