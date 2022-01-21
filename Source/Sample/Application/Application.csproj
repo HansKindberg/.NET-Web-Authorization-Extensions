@@ -16,9 +16,9 @@
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="$(PackageReferenceVersion)" Condition="'$(Configuration)' == 'Debug'" />
 		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
 		<PackageReference Include="System.DirectoryServices.AccountManagement" Version="6.0.0" />
-		<PackageReference Include="RegionOrebroLan.Caching" Version="0.0.9-alpha" />
-		<PackageReference Include="RegionOrebroLan.DataProtection" Version="0.0.8-alpha" />
-		<PackageReference Include="RegionOrebroLan.Web.Authentication.Cookies" Version="0.0.2-alpha" />
+		<PackageReference Include="RegionOrebroLan.Caching" Version="0.0.10-alpha" />
+		<PackageReference Include="RegionOrebroLan.DataProtection" Version="0.0.9-alpha" />
+		<PackageReference Include="RegionOrebroLan.Web.Authentication.Cookies" Version="0.0.3-alpha" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\..\Project\Project.csproj" />
